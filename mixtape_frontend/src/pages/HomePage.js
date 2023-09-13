@@ -1,6 +1,16 @@
 import background from '../img/main-background.jpg'
+import mixtapes from "../models/mixtape"
+import {useState} from "react";
 
 function HomePage() {
+
+  const [testtape, setTesttape] = useState("");
+
+  async function getMixtapes(){
+  let result = await mixtapes.getAllMixtapes()
+  setTesttape(result[0].name)
+  } 
+
   return (
     <div className="home-page-background" style={{backgroundImage: `url(${background})`}}>
     <div className="home-page">
@@ -12,6 +22,8 @@ function HomePage() {
           Sit excepturi quaerat voluptatibus consequatur corporis unde. Qui qui et autem temporibus ut in molestiae et. 
           Praesentium cumque provident praesentium totam voluptatem. Temporibus minima aut ea molestiae quam deleniti quisquam.</p>
         <div>Make your first mixtape!</div>
+        <button onClick={getMixtapes}>See all mixtapes</button>
+        <div>{testtape}</div>
     </div>
     </div>
   );
