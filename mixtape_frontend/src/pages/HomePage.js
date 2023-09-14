@@ -1,6 +1,8 @@
 import background from '../img/main-background.jpg'
 import mixtapes from "../models/mixtape"
 import {useState} from "react";
+import mixtapeGif from "../img/mixtape-gif.gif"
+import VideoPlayer from '../components/VideoPlayers';
 
 function HomePage() {
 
@@ -24,6 +26,8 @@ function HomePage() {
         <div>Make your first mixtape!</div>
         <button onClick={getMixtapes}>See all mixtapes</button>
         <div>{testtape}</div>
+        <img className="mixtape-gif" src={mixtapeGif}></img>
+        <VideoPlayer/>
     </div>
     </div>
   );
