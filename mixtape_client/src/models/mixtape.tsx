@@ -4,7 +4,7 @@ const mixtapes = {
 
     getAllMixtapes: async function getAllMixtapes() {
 
-        const response = await fetch('http://localhost:5050/mixtape', {
+        const response = await fetch('http://localhost:5050/mixtape',{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -18,3 +18,5 @@ const mixtapes = {
 };
 
 export default mixtapes;
+
+

@@ -1,15 +1,15 @@
 import background from '../img/main-background.jpg'
-import mixtapes from "../models/mixtape"
-import {useState} from "react";
-import mixtapeGif from "../img/mixtape-gif.gif"
+import mixtapes from "../models/mixtape.tsx"
+import React, {useState} from "react";
 import VideoPlayer from '../components/VideoPlayers';
+import mixtapeGif from "../img/mixtape-gif.gif"
 
 function HomePage() {
 
   const [testtape, setTesttape] = useState("");
 
   async function getMixtapes(){
-  let result = await mixtapes.getAllMixtapes()
+  const result = await mixtapes.getAllMixtapes()
   setTesttape(result[0].name)
   } 
 
@@ -26,7 +26,7 @@ function HomePage() {
         <div>Make your first mixtape!</div>
         <button onClick={getMixtapes}>See all mixtapes</button>
         <div>{testtape}</div>
-        <img className="mixtape-gif" src={mixtapeGif}></img>
+        <img className="mixtape-gif" alt="Gif of playing casette tape." src={mixtapeGif}></img>
         <VideoPlayer/>
     </div>
     </div>

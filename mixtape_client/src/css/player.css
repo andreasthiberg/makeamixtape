@@ -1,0 +1,7 @@
+.music-controls-container {
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}

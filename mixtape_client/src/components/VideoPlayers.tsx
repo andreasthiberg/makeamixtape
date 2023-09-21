@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, useEffect } from 'react';
 
 function YouTubePlayer() {
@@ -41,7 +42,7 @@ function YouTubePlayer() {
   };
 
   const stopVideo = () => {
-    const player = playerRef.current;
+      const player = playerRef.current;
     if (player) {
       player.pauseVideo(); // Start playback
     }
@@ -50,11 +51,13 @@ function YouTubePlayer() {
 
   return (
     <div>
-      <div style={{visibility:"hidden"}} className="video-container">
+      <div style={{display:"none"}} className="video-container">
         <div ref={playerRef}></div>
       </div>
-      <button onClick={playVideo}>Play</button>
-      <button onClick={stopVideo}>Stop</button>
+      <div className="music-controls-container">
+      <button className="music-controls-button" onClick={playVideo}>Play</button>
+      <button className="music-controls-button" onClick={stopVideo}>Stop</button>
+      </div>
     </div>
   );
 }

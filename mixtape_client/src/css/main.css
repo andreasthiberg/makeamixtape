@@ -1,5 +1,6 @@
 /* Import sub-files */
 @import url('homepage.css');
+@import url('player.css');
 
 /* Import variables (mainly color values) */
 @import url('variables.css');
