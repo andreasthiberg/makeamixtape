@@ -1,8 +1,13 @@
 // @ts-nocheck
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
-function YouTubePlayer() {
+interface YoutubePlayerProps {
+  videoURL: string
+}
+
+function YouTubePlayer({videoURL} : YoutubePlayerProps) {
   const playerRef = useRef(null);
+  const [currentVideoURL, setCurrentVideoURL] = useState<string | null>(null);
 
   useEffect(() => {
     // Load the YouTube iframe API script
@@ -13,7 +18,7 @@ function YouTubePlayer() {
     // Define an API callback function
     window.onYouTubeIframeAPIReady = () => {
       const player = new window.YT.Player(playerRef.current, {
-        videoId: 'ImKY6TZEyrI', // Replace with your YouTube video's ID
+        videoId: videoURL, // Replace with your YouTube video's ID
         playerVars: {
           autoplay: 1, // Auto-play is turned off
           controls: 0, // Hide player controls
@@ -33,6 +38,14 @@ function YouTubePlayer() {
     };
   }, []);
 
+  const changeVideo = () => {
+    const player = playerRef.current;
+    if (player) {
+      player.loadVideoById({videoId: videoURL}); // Change to new video.
+    }
+  };
+
+
   const playVideo = () => {
     const player = playerRef.current;
     if (player) {
@@ -51,13 +64,15 @@ function YouTubePlayer() {
 
   return (
     <div>
-      <div style={{display:"none"}} className="video-container">
+      <div style={{display:"block"}} className="video-container">
         <div ref={playerRef}></div>
       </div>
       <div className="music-controls-container">
       <button className="music-controls-button" onClick={playVideo}>Play</button>
       <button className="music-controls-button" onClick={stopVideo}>Stop</button>
+      <button className="music-controls-button" onClick={changeVideo}>Change</button>
       </div>
+      {videoURL}
     </div>
   );
 }

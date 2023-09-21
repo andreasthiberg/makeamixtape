@@ -1,5 +1,6 @@
 import './css/main.css';
 import HomePage from './pages/HomePage'
+import SingleMixtapePage from './pages/SingleMixtape';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         <div className="site-title">make a mixtape</div>
       </header>
       <div className ="page-container">
-        <HomePage />
+        <SingleMixtapePage mixtapeId={"123"} />
         </div>
     </div>
   );

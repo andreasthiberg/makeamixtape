@@ -1,7 +1,7 @@
 import background from '../img/main-background.jpg'
 import mixtapes from "../models/mixtape.tsx"
 import React, {useState} from "react";
-import VideoPlayer from '../components/VideoPlayers';
+import VideoPlayer from '../components/YoutubePlayer.tsx';
 import mixtapeGif from "../img/mixtape-gif.gif"
 
 function HomePage() {
@@ -27,7 +27,6 @@ function HomePage() {
         <button onClick={getMixtapes}>See all mixtapes</button>
         <div>{testtape}</div>
         <img className="mixtape-gif" alt="Gif of playing casette tape." src={mixtapeGif}></img>
-        <VideoPlayer/>
     </div>
     </div>
   );
